@@ -79,7 +79,9 @@
            IF MATCH-FOUND = "N"
                IF IN-ACTION = "NEW"
                    PERFORM APPEND-ACCOUNT
-                   PERFORM APPEND-INTEREST
+                   IF WS-ARGUMENT = "--apply-interest"
+                       PERFORM APPEND-INTEREST
+                   END-IF
                    MOVE "ACCOUNT CREATED" TO OUT-RECORD
                ELSE
                    MOVE "ACCOUNT NOT FOUND" TO OUT-RECORD
