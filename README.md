@@ -9,7 +9,7 @@ docker build -t cobol-app .
 ### Run the image in container:
 ``` bash
 docker run -d --name <container name> -p <host_port>:<docker_port> <image_name>
-docker run -d --name cobol-container -p 5000:8000 cobol-app
+docker run -d --name cobol-container -p 8000:8000 -e COBOL_ARGS="--apply-interest" cobol-app
 ```
 
 ### Access the container's shell:
