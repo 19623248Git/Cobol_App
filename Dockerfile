@@ -3,6 +3,7 @@ FROM python:3.11-slim AS builder
 RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc \
     gnucobol \
+    libcob4 \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /workspace
@@ -15,7 +16,7 @@ RUN cobc -x -o main.bin main.cob
 
 FROM python:3.11-slim
 
-WORKDIR /workspace
+WORKDIR /app
 
 RUN useradd --create-home appuser
 
