@@ -33,11 +33,11 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     # Create "main" wrapper script that the Python app will execute
     echo '#!/bin/sh' > main && \
-    echo 'exec /workspace/main.bin ${COBOL_ARGS}' >> main && \
+    echo 'exec /app/main.bin ${COBOL_ARGS}' >> main && \
     # Make the wrapper script executable
     chmod +x main && \
     # Give the non-root user ownership of all application files
-    chown -R appuser:appuser /workspace
+    chown -R appuser:appuser /app
 
 USER appuser
 
